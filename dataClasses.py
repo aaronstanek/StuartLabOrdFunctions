@@ -4,4 +4,4 @@ class data_event:
         self.data = dict()
     def fromDict(self,d):
         self.meta = d["EV_META"]
-        self.data = d["EV_DATA"]
+        self.data = d["DATA"]
