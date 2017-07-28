@@ -30,3 +30,9 @@ class softwareTrigger:
             if good==False:
                 return False
         return True
+    def scanList(self,ev_list):
+        ou = []
+        for x in ev_list:
+            if self.scan(x):
+                ou.append(x)
+        return ou
