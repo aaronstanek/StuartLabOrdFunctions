@@ -20,6 +20,7 @@ def read(filename):
     raw = readRaw(filename)
     st = json.loads(raw)
     del(raw)
+    osc_meta = st["OSC_META"]
     ev_list = makeEvents(st)
     del(st)
-    return ev_list
+    return [osc_meta,ev_list]
