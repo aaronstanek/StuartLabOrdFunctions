@@ -2,12 +2,12 @@ def scanChannel(data,lev,direction):
     #data is a list of floats
     #lev is a float
     #direction is a string ("above","below")
-    if dir=="above":
+    if direction=="above":
         for x in data:
             if x>=lev:
                 return True
         return False
-    elif dir=="below":
+    elif direction=="below":
         for x in data:
             if x<=lev:
                 return True
@@ -26,7 +26,7 @@ class softwareTrigger:
     def scan(self,ev):
         #ev is a data_event object
         for x in self.lev:
-            good = scanChannel(ev.data[x],lev[x],self.direction)
+            good = scanChannel(ev.data[x],self.lev[x],self.direction)
             if good==False:
                 return False
         return True

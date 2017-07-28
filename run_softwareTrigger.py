@@ -23,7 +23,7 @@ def main(inpath,outpath,lev,direction):
     for f in files:
         [osc_meta,ev_list] = clread.read(inpath+f)
         ev_list_scanned = st.scanList(ev_list)
-        clwrite(outpath,osc_meta,ev_list_scanned)
+        clwrite.save(outpath+f,osc_meta,ev_list_scanned)
         del(osc_meta)
         del(ev_list)
         del(ev_list_scanned)
