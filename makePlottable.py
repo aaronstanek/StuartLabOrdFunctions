@@ -1,5 +1,6 @@
 import run_softwareTrigger
 import read_ord_json_clump
+import histplotlib
 
 def makePlottable(data,get1,get2):
     #data is a list of dict (str->float)
