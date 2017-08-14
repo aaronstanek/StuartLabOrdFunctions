@@ -7,18 +7,22 @@ def makePlottable(data,get1,get2):
     if len(data)==0:
         raise Exception("This is an empty dataset.")
     ran = dict()
-    ran["xmin"] = data[0][get1]
-    ran["xmax"] = data[0][get1]
-    ran["ymin"] = data[0][get2]
-    ran["ymax"] = data[0][get2]
+    w = data[0].getMaxes()
+    xVal = w[get1]
+    yVal = w[get2]
+    ran["xmin"] = xVal
+    ran["xmax"] = xVal
+    ran["ymin"] = yVal
+    ran["ymax"] = yVal
     ou = []
     for x in data:
-        xVal = x[get1]
+        w = x.getMaxes()
+        xVal = w[get1]
+        yVal = w[get2]
         if xVal<ran["xmin"]:
             ran["xmin"] = xVal
         if xVal>ran["xmax"]:
             ran["xmax"] = xVal
-        yVal = x[get2]
         if yVal<ran["ymin"]:
             ran["ymin"] = yVal
         if yVal>ran["ymax"]:
