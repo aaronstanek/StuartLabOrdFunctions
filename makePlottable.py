@@ -47,7 +47,10 @@ def plotDir(dirpath,savepath,get1,get2,**options):
     for f in fileList:
         [osc_meta,ev_list] = read_ord_json_clump.read(dirpath+f)
         del(osc_meta)
-        mp_ou,mp_ran = makePlottable(ev_list,get1,get2)
+        try:
+            mp_ou,mp_ran = makePlottable(ev_list,get1,get2)
+        except:
+            continue
         del(ev_list)
         if len(pl_ran)==0:
             pl_hold = mp_ou
