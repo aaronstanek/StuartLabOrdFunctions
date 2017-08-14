@@ -38,7 +38,7 @@ def joinPlottable(ou1,ran1,ou2,ran2):
     ran["xmax"] = max(ran1["xmax"],ran2["xmax"])
     ran["ymin"] = min(ran1["ymin"],ran2["ymin"])
     ran["ymax"] = max(ran1["ymax"],ran2["ymax"])
-    return ou,ran
+    return ou1,ran
 
 def plotDir(dirpath,savepath,get1,get2,**options):
     fileList = run_softwareTrigger.getInputFiles(dirpath)
