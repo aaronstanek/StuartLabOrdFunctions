@@ -22,6 +22,6 @@ class data_event:
             for i in range(spot,len(self.data[chan])):
                 val = val+self.data[chan][i]
             ave_value = float(val)/float(len(self.data[chan])-spot) - float(cal)/float(spot)
-            total_value = ave_value*float(self.meta["DISPLAY_TIMEDIVISION"])
+            total_value = ave_value*float(self.meta["DISPLAY_TIMEDIVISION"])*float(len(self.data[chan])-spot)
             ou[chan] = total_value
         return ou
