@@ -2,7 +2,7 @@ import run_softwareTrigger
 import read_ord_json_clump
 import histplotlib
 
-def makePlottable(data,get1,get2):
+def makePlottable(data,get1,get2,**options):
     #data is a list of dict (str->float)
     #get1 and get2 are str, specifying keys in the dicts of data
     if len(data)==0:
@@ -31,7 +31,7 @@ def makePlottable(data,get1,get2):
         ou.append([xVal,yVal])
     return ou,ran
 
-def makePlottable_single(data,get1):
+def makePlottable_single(data,get1,**options):
     #data is a list of dict (str->float)
     #get1 and get2 are str, specifying keys in the dicts of data
     if len(data)==0:
