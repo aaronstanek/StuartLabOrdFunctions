@@ -98,7 +98,7 @@ def plotDir(dirpath,savepath,get1,get2,**options):
         [osc_meta,ev_list] = read_ord_json_clump.read(dirpath+f)
         del(osc_meta)
         try:
-            mp_ou,mp_ran = makePlottable(ev_list,get1,get2)
+            mp_ou,mp_ran = makePlottable(ev_list,get1,get2,**options)
         except:
             continue
         del(ev_list)
@@ -121,7 +121,7 @@ def plotDir_single(dirpath,savepath,get1,**options):
         [osc_meta,ev_list] = read_ord_json_clump.read(dirpath+f)
         del(osc_meta)
         try:
-            mp_ou,mp_ran = makePlottable_single(ev_list,get1)
+            mp_ou,mp_ran = makePlottable_single(ev_list,get1,**options)
         except:
             continue
         del(ev_list)
