@@ -5,10 +5,17 @@ import histplotlib
 def makePlottable(data,get1,get2,**options):
     #data is a list of dict (str->float)
     #get1 and get2 are str, specifying keys in the dicts of data
+    useIntegral = False
+    if "useIntegral" in options:
+        if options["useIntegral"]==True:
+            useIntegral = True
     if len(data)==0:
         raise Exception("This is an empty dataset.")
     ran = dict()
-    w = data[0].getMaxes()
+    if useIntegral:
+        w = data[0].getIntegral()
+    else:
+        w = data[0].getMaxes()
     xVal = w[get1]
     yVal = w[get2]
     ran["xmin"] = xVal
@@ -17,7 +24,10 @@ def makePlottable(data,get1,get2,**options):
     ran["ymax"] = yVal
     ou = []
     for x in data:
-        w = x.getMaxes()
+        if useIntegral:
+            w = x.getIntegral()
+        else:
+            w = x.getMaxes()
         xVal = w[get1]
         yVal = w[get2]
         if xVal<ran["xmin"]:
@@ -34,16 +44,26 @@ def makePlottable(data,get1,get2,**options):
 def makePlottable_single(data,get1,**options):
     #data is a list of dict (str->float)
     #get1 and get2 are str, specifying keys in the dicts of data
+    useIntegral = False
+    if "useIntegral" in options:
+        if options["useIntegral"]==True:
+            useIntegral = True
     if len(data)==0:
         raise Exception("This is an empty dataset.")
     ran = dict()
-    w = data[0].getMaxes()
+    if useIntegral:
+        w = data[0].getIntegral()
+    else:
+        w = data[0].getMaxes()
     xVal = w[get1]
     ran["xmin"] = xVal
     ran["xmax"] = xVal
     ou = []
     for x in data:
-        w = x.getMaxes()
+        if useIntegral:
+            w = x.getIntegral()
+        else:
+            w = x.getMaxes()
         xVal = w[get1]
         if xVal<ran["xmin"]:
             ran["xmin"] = xVal
