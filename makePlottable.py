@@ -53,7 +53,8 @@ def makePlottable(data,get1,get2,**options):
             ran["ymin"] = yVal
         if yVal>ran["ymax"]:
             ran["ymax"] = yVal
-        ou.append([xVal,yVal])
+        if plotChop(xVal,yVal,options)==False:
+            ou.append([xVal,yVal])
     return ou,ran
 
 def makePlottable_single(data,get1,**options):
