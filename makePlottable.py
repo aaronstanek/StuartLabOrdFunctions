@@ -2,6 +2,21 @@ import run_softwareTrigger
 import read_ord_json_clump
 import histplotlib
 
+def plotChop(xval,yval,**options):
+    if "chopxmax" in options:
+        if xval>options["chopxmax"]:
+            return True
+    if "chopymax" in options:
+        if yval>options["chopymax"]:
+            return True
+    if "chopxmin" in options:
+        if xval<options["chopxmin"]:
+            return True
+    if "chopymin" in options:
+        if yval<options["chopymin"]:
+            return True
+    return False
+
 def makePlottable(data,get1,get2,**options):
     #data is a list of dict (str->float)
     #get1 and get2 are str, specifying keys in the dicts of data
