@@ -94,7 +94,8 @@ def makePlottable_single(data,get1,**options):
             ran["xmin"] = xVal
         if xVal>ran["xmax"]:
             ran["xmax"] = xVal
-        ou.append(xVal)
+        if plotChop_single(xVal,options)==False:
+            ou.append(xVal)
     return ou,ran
 
 def joinPlottable(ou1,ran1,ou2,ran2):
