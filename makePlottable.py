@@ -57,6 +57,15 @@ def makePlottable(data,get1,get2,**options):
             ou.append([xVal,yVal])
     return ou,ran
 
+def plotChop_single(xval,**options):
+    if "chopxmax" in options:
+        if xval>options["chopxmax"]:
+            return True
+    if "chopxmin" in options:
+        if xval<options["chopxmin"]:
+            return True
+    return False
+
 def makePlottable_single(data,get1,**options):
     #data is a list of dict (str->float)
     #get1 and get2 are str, specifying keys in the dicts of data
